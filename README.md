@@ -1,3 +1,8 @@
+#Foreword
+Although the average consumer is friendly with paper shredders, there isn't an easy equivalent in the digital world that works as simply as a shredder.
+
+I want to change that, and make it easy for the average person to have access to the same data erasing security that governments and security analysts use and suggest others use. The fact that there is not a 1-button wipe function on external hard drives means most people do not remove personal data from drives before recycling or reselling their outdated hardware.
+
 pi-shred prerequisites
 =======================
 - raspberry pi model b (model a not available for manual install procedure)
