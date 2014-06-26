@@ -1,7 +1,7 @@
 #PiShred
 Although the average consumer is familiar with paper shredders, most people don't know how to achieve the equivalent goal in the digital world. This project is designed to implement a 1-touch secure wipe in a consumer friendly package!
 
-pi-shred manual install prerequisites
+## Manual Installation instructions
 =======================
 - Raspberry Pi Model B
 - 4GB SD Card
@@ -11,11 +11,11 @@ pi-shred manual install prerequisites
 - HDMI cable
 - USB Keyboard
 
-Auto-installation instructions
+## Auto-installation instructions
 ==============================
 - These will be added at a later date, and with them we will add support for the low-price Raspberry Pi (Model A)!
 
-Manual installation instructions
+## Manual installation instructions
 ================================
 - Follow setup instructions for Raspian installation to SD card
 - Enable network connectivity on the raspberry pi
@@ -24,6 +24,6 @@ Manual installation instructions
 - Reboot your pi with `sudo reboot`, unplug your keyboard, ethernet cable or wireless dongle, and HDMI cable
 - Enjoy!
 
-3D printed case designs
+## 3D printed case designs
 =======================
 - We are in need of a case design for this project that incorporates a low-cost popular SATA dock. If you are interested in assisting with this project, email pi dot shred at aj dot cm to find out more about how you can help.
