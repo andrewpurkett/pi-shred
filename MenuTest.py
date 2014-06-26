@@ -27,8 +27,10 @@ if __name__ == "__main__":
         cad.lcd.clear()
         cad.lcd.display_off()
         cad.lcd.backlight_off()
+        sleep(3)
     else:
         cad.lcd.clear()
         cad.lcd.backlight_on()
         cad.lcd.write("PI-SHRED v0.01\nwww.aj.cm/pi")
+        sleep(3)
         show_sysinfo()
