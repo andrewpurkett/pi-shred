@@ -1,16 +1,19 @@
 #Foreword
-Although the average consumer is friendly with paper shredders, there isn't an easy equivalent in the digital world that works as simply as a shredder.
+Although the average consumer is familiar with paper shredders, most people don't know how to achieve the equivalent goal in the digital world. This project is designed to implement a 1-touch secure wipe in a consumer friendly package!
 
-I want to change that, and make it easy for the average person to have access to the same data erasing security that governments and security analysts use and suggest others use. The fact that there is not a 1-button wipe function on external hard drives means most people do not remove personal data from drives before recycling or reselling their outdated hardware.
-
-pi-shred prerequisites
+pi-shred manual install prerequisites
 =======================
-- raspberry pi model b (model a not available for manual install procedure)
-- 4 gb sd card
+- Raspberry Pi Model B
+- 4GB SD Card
 - PiFace control and display add-on board
-- usb to sata adapter (if wiping SATA drives)
-- 5v@2.1a micro-usb power supply
-- HDMI cable and usb keyboard (Manual install only)
+- USB to SATA Adapter (if wiping SATA drives, can be used for USB externals without this)
+- 1 Amp 5 Volt MicroUSB power supply
+- HDMI cable
+- USB Keyboard
+
+Auto-installation instructions
+==============================
+- These will be added at a later date, and with them we will add support for the low-price Raspberry Pi (Model A)!
 
 Manual installation instructions
 ================================
@@ -18,8 +21,10 @@ Manual installation instructions
 - Enable network connectivity on the raspberry pi
 - Follow setup instructions to configure PiFace interface: http://www.piface.org.uk/guides/setting_up_pifacecad/
 - git clone this repository to /home/pi/pi-shred/ and run setup.sh (not yet available!)
+- Append "sudo python3 /home/pi/pi-shred/PiShred.py" to /etc/rc.local using vim or nano
+- Reboot your pi
 - Enjoy!
 
 3D printed case designs
 =======================
-We are interested in developing a case for this project that incorporates a SATA dock. If you are interested in assisting with this project, email pishred at aj dot cm
+- We are in need of a case design for this project that incorporates a low-cost popular SATA dock. If you are interested in assisting with this project, email pi dot shred at aj dot cm to find out more about how you can help.
