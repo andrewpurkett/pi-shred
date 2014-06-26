@@ -4,19 +4,53 @@ import subprocess
 from time import sleep
 import pifacecad
 
-def update_pin_text(event):
-    event.chip.lcd.write(str(event.pin_num+1))
+UPDATE_INTERVAL = 15  # 15 seconds
+
+def scan_for_drives(event):
+    event.chip.lcd.clear()
+    event.chip.lcd.write("Scan failed\nNot implemented")
+    listener = pifacecad.SwitchEventListener(chip=cad)
+    listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
+    listener.activate()
+
+def wipe_zero(event):
+    event.chip.lcd.clear()
+    event.chip.lcd.write("Wipe failed\nNot implemented")
+    listener = pifacecad.SwitchEventListener(chip=cad)
+    listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
+    listener.activate()
+
+def wipe_rand(event):
+    event.chip.lcd.clear()
+    event.chip.lcd.write("Shred failed\nNot implemented")
+    listener = pifacecad.SwitchEventListener(chip=cad)
+    listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
+    listener.activate()
+
+def recover_data(event):
+    event.chip.lcd.clear()
+    event.chip.lcd.write("Find failed\nNot implemented")
+    listener = pifacecad.SwitchEventListener(chip=cad)
+    listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
+    listener.activate()
+
+def interrupt_process(event):
+    event.chip.lcd.clear()
+    event.chip.lcd.write("Abort failed\nNot implemented")
+    show_main_menu()
 
 def run_cmd(cmd):
     return subprocess.check_output(cmd, shell=True).decode('utf-8')
 
 
-def show_sysinfo():
+def show_main_menu():
     cad.lcd.clear()
     cad.lcd.write("1) SCAN 2) WIPE\n3)SHRED 4) FIND")
     listener = pifacecad.SwitchEventListener(chip=cad)
-    for i in range(4):
-        listener.register(i, pifacecad.IODIR_FALLING_EDGE, update_pin_text)
+    listener.register(0, pifacecad.IODIR_FALLING_EDGE, scan_for_drives)
+    listener.register(1, pifacecad.IODIR_FALLING_EDGE, wipe_zero)
+    listener.register(2, pifacecad.IODIR_FALLING_EDGE, wipe_rand)
+    listener.register(3, pifacecad.IODIR_FALLING_EDGE, recover_data)
     listener.activate()
 
 if __name__ == "__main__":
@@ -34,4 +68,4 @@ if __name__ == "__main__":
         cad.lcd.backlight_on()
         cad.lcd.write("PI-SHRED v0.01\nwww.aj.cm/pi")
         sleep(3)
-        show_sysinfo()
+        show_main_menu()
