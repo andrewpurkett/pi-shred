@@ -4,7 +4,8 @@ import subprocess
 from time import sleep
 import pifacecad
 
-UPDATE_INTERVAL = 15  # 15 seconds
+READ_TIME = 2 # Give user at least this many seconds to read messages
+# (set to 0 if you're "kind of a big deal")
 
 def scan_for_drives(event):
     event.chip.lcd.clear()
@@ -12,6 +13,7 @@ def scan_for_drives(event):
     listener = pifacecad.SwitchEventListener(chip=cad)
     listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
     listener.activate()
+    #TODO: ls /dev/ | grep -v etc...
 
 def wipe_zero(event):
     event.chip.lcd.clear()
@@ -19,6 +21,8 @@ def wipe_zero(event):
     listener = pifacecad.SwitchEventListener(chip=cad)
     listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
     listener.activate()
+    #TODO: wipe="dd if=/dev/zero of="
+
 
 def wipe_rand(event):
     event.chip.lcd.clear()
@@ -26,6 +30,7 @@ def wipe_rand(event):
     listener = pifacecad.SwitchEventListener(chip=cad)
     listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
     listener.activate()
+    #TODO: wipe="dd if=/dev/urandom of="
 
 def recover_data(event):
     event.chip.lcd.clear()
@@ -33,16 +38,16 @@ def recover_data(event):
     listener = pifacecad.SwitchEventListener(chip=cad)
     listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
     listener.activate()
+    #TODO: Learn how to implement this
 
 def interrupt_process(event):
     event.chip.lcd.clear()
-    event.chip.lcd.write("Abort failed\nNot implemented")
-    sleep(2)
+    event.chip.lcd.write("Aborted!")
+    sleep(READ_TIME)
     show_main_menu()
 
 def run_cmd(cmd):
     return subprocess.check_output(cmd, shell=True).decode('utf-8')
-
 
 def show_main_menu():
     cad.lcd.clear()
@@ -63,10 +68,10 @@ if __name__ == "__main__":
         cad.lcd.clear()
         cad.lcd.display_off()
         cad.lcd.backlight_off()
-        sleep(3)
+        sleep(READ_TIME)
     else:
         cad.lcd.clear()
         cad.lcd.backlight_on()
         cad.lcd.write("PI-SHRED v0.01\nwww.aj.cm/pi")
-        sleep(3)
+        sleep(READ_TIME)
         show_main_menu()
