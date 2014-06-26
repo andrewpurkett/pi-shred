@@ -37,6 +37,7 @@ def recover_data(event):
 def interrupt_process(event):
     event.chip.lcd.clear()
     event.chip.lcd.write("Abort failed\nNot implemented")
+    sleep(2)
     show_main_menu()
 
 def run_cmd(cmd):
