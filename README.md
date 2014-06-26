@@ -1,4 +1,4 @@
-#Foreword
+#PiShred
 Although the average consumer is familiar with paper shredders, most people don't know how to achieve the equivalent goal in the digital world. This project is designed to implement a 1-touch secure wipe in a consumer friendly package!
 
 pi-shred manual install prerequisites
