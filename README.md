@@ -21,5 +21,5 @@ Although the average consumer is familiar with paper shredders, most people don'
 - Reboot your pi with `sudo reboot`, unplug your keyboard, ethernet cable or wireless dongle, and HDMI cable
 - Enjoy!
 
-## Interested in designing our 3D printed case design?
+## Interested in designing our 3D printed case?
 - We are in need of a case design for this project that incorporates a low-cost popular SATA dock. If you are interested in assisting with this project, email pi dot shred at aj dot cm to find out more about how you can help.
