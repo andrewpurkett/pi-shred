@@ -4,19 +4,20 @@ import subprocess
 from time import sleep
 import pifacecad
 
-UPDATE_INTERVAL = 15  # 15 seconds
+def update_pin_text(event):
+    event.chip.lcd.write(str(event.pin_num+1))
 
 def run_cmd(cmd):
     return subprocess.check_output(cmd, shell=True).decode('utf-8')
 
 
 def show_sysinfo():
-    while True:
-        cad.lcd.clear()
-        cad.lcd.write("1) SCAN 2) WIPE\n3)SHRED 4) FIND")
-
-        sleep(UPDATE_INTERVAL)
-
+    cad.lcd.clear()
+    cad.lcd.write("1) SCAN 2) WIPE\n3)SHRED 4) FIND")
+    listener = pifacecad.SwitchEventListener(chip=cad)
+    for i in range(4):
+        listener.register(i, pifacecad.IODIR_FALLING_EDGE, update_pin_text)
+    listener.activate()
 
 if __name__ == "__main__":
     cad = pifacecad.PiFaceCAD()
