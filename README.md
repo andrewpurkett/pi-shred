@@ -20,7 +20,7 @@ Manual installation instructions
 - Follow setup instructions for Raspian installation to SD card
 - Enable network connectivity on the raspberry pi
 - Follow setup instructions to configure PiFace interface: http://www.piface.org.uk/guides/setting_up_pifacecad/
-- git clone this repository to /home/pi/pi-shred/ and run setup.sh (not yet available!)
+- Run this command from terminal on the RaspPi: `cd ~; git clone git@github.com:andrewpurkett/pi-shred.git`
 - Append "sudo python3 /home/pi/pi-shred/PiShred.py" to /etc/rc.local using vim or nano
 - Reboot your pi
 - Enjoy!
