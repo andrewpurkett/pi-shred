@@ -31,6 +31,9 @@ def wipe_rand(event):
     listener.register(4, pifacecad.IODIR_FALLING_EDGE, interrupt_process)
     listener.activate()
     #TODO: wipe="dd if=/dev/urandom of="
+    #TODO: Seed random with...
+    # 1) owner's TV remote controls (Pressing random buttons pointed at IR sensor)
+    # or 2) other PiFace input data (Buttons 5-8?)
 
 def recover_data(event):
     event.chip.lcd.clear()
