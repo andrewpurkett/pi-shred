@@ -22,7 +22,7 @@ Manual installation instructions
 - Follow setup instructions to configure PiFace interface: http://www.piface.org.uk/guides/setting_up_pifacecad/
 - Run this command from terminal on the RaspPi: `cd ~; git clone git@github.com:andrewpurkett/pi-shred.git`
 - Append "sudo python3 /home/pi/pi-shred/PiShred.py" to /etc/rc.local using vim or nano
-- Reboot your pi
+- Reboot your pi with `sudo reboot`, unplug your keyboard, ethernet cable or wireless dongle, and HDMI cable
 - Enjoy!
 
 3D printed case designs
